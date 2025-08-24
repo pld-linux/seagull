@@ -6,24 +6,24 @@
 Summary:	SQLite helper library
 Summary(pl.UTF-8):	Biblioteka pomocnicza SQLite
 Name:		seagull
-Version:	0.3.0
+Version:	0.5.0
 Release:	1
 License:	LGPL v2.1+
 Group:		Libraries
 Source0:	https://downloads.sourceforge.net/pidgin/%{name}-%{version}.tar.xz
-# Source0-md5:	0c221e08352f305a9920d8636e05b5dd
+# Source0-md5:	ef6bb17f7fd297b5289ada49b051a8c9
 URL:		https://keep.imfreedom.org/seagull/seagull/
 # C17
 BuildRequires:	gcc >= 6:7
 BuildRequires:	gi-docgen >= 2024.1
-BuildRequires:	glib2-devel >= 1:2.76.0
-BuildRequires:	meson >= 1.1.10
+BuildRequires:	glib2-devel >= 1:2.80.0
+BuildRequires:	meson >= 1.1.0
 BuildRequires:	ninja >= 1.5
 BuildRequires:	pkgconfig
 BuildRequires:	rpm-build >= 4.6
 BuildRequires:	rpmbuild(macros) >= 2.042
 BuildRequires:	sqlite3-devel >= 3.27.0
-Requires:	glib2 >= 1:2.76.0
+Requires:	glib2 >= 1:2.80.0
 Requires:	sqlite3 >= 3.27.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -49,7 +49,7 @@ Summary:	Header files for Seagull library
 Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki Seagull
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	glib2-devel >= 1:2.76.0
+Requires:	glib2-devel >= 1:2.80.0
 Requires:	sqlite3-devel >= 3.27.0
 
 %description devel
