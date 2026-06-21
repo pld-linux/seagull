@@ -6,12 +6,13 @@
 Summary:	SQLite helper library
 Summary(pl.UTF-8):	Biblioteka pomocnicza SQLite
 Name:		seagull
-Version:	0.5.0
+Version:	0.8.1
 Release:	1
 License:	LGPL v2.1+
 Group:		Libraries
 Source0:	https://downloads.sourceforge.net/pidgin/%{name}-%{version}.tar.xz
-# Source0-md5:	ef6bb17f7fd297b5289ada49b051a8c9
+# Source0-md5:	3b7108cdf0875bfc038b66c9f9454b95
+Patch0:		%{name}-format.patch
 URL:		https://keep.imfreedom.org/seagull/seagull/
 # C17
 BuildRequires:	gcc >= 6:7
@@ -23,6 +24,8 @@ BuildRequires:	pkgconfig
 BuildRequires:	rpm-build >= 4.6
 BuildRequires:	rpmbuild(macros) >= 2.042
 BuildRequires:	sqlite3-devel >= 3.27.0
+BuildRequires:	tar >= 1:1.22
+BuildRequires:	xz
 Requires:	glib2 >= 1:2.80.0
 Requires:	sqlite3 >= 3.27.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -84,6 +87,7 @@ Dokumentacja API biblioteki Seagull.
 
 %prep
 %setup -q
+%patch -P0 -p1
 
 %build
 %meson
@@ -109,7 +113,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog README.md
-%attr(755,root,root) %{_libdir}/libseagull.so.*.*.*
+%{_libdir}/libseagull.so.*.*.*
 %ghost %{_libdir}/libseagull.so.0
 %{_libdir}/girepository-1.0/Seagull-1.0.typelib
 

@@ -1,0 +1,20 @@
+--- seagull-0.8.1/seagull/seagullstatement.c.orig	2026-06-21 21:43:51.463484025 +0200
++++ seagull-0.8.1/seagull/seagullstatement.c	2026-06-21 21:45:00.619776040 +0200
+@@ -1106,7 +1106,7 @@ seagull_statement_column_error(SeagullSt
+ 	g_variant_get_child(variant, 2, "&s", &message);
+ 
+ 	/* Build the error. */
+-	value = g_error_new(g_quark_from_string(domain), code, message);
++	value = g_error_new(g_quark_from_string(domain), code, "%s", message);
+ 
+ 	g_variant_unref(variant);
+ 
+@@ -1301,7 +1301,7 @@ seagull_statement_column_object(SeagullS
+ 				g_variant_get_child(variant, 2, "&s", &message);
+ 
+ 				/* Build the error. */
+-				error_value = g_error_new(g_quark_from_string(domain), code,
++				error_value = g_error_new(g_quark_from_string(domain), code, "%s",
+ 				                          message);
+ 
+ 				g_clear_pointer(&variant, g_variant_unref);
